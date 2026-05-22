@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Sanjeevni Techno | Intelligent Business Systems</title>
+  <meta name="description" content="AI & IoT solutions for businesses across industries. Real-time monitoring, predictive maintenance, automation and more. Packages starting ₹75,000." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* =============================================
+   SANJEEVNI TECHNO — services.css
+   ============================================= */
+:root {
+  --bg: #F5F6F7;
+  --bg-white: #ffffff;
+  --text: #2B2E33;
+  --text-secondary: #7B7F85;
+  --accent: #1A56DB;
+  --accent-light: #3B82F6;
+  --accent-glow: rgba(26,86,219,0.15);
+  --green: #16A34A;
+  --green-light: #22C55E;
+  --amber: #D97706;
+  --border: #E4E6EA;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+  --transition: 0.3s ease;
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+svg { display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.section { padding: 100px 0; position: relative; }
+
+/* =============================================
+   SKELETON LOADER
+   ============================================= */
+#skeleton-overlay {
+  position: fixed; inset: 0;
+  background: var(--bg-white);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 20px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#skeleton-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.sk-logo-pulse {
+  width: 56px; height: 56px;
+  background: var(--accent);
+  border-radius: 14px;
+  animation: skPulse 1.2s ease-in-out infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+.sk-logo-pulse svg { width: 28px; height: 28px; color: #fff; }
+@keyframes skPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.9); opacity: 0.6; }
+}
+.sk-text { font-family: var(--font-head); font-size: 1.1rem; color: var(--text-secondary); }
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000; padding: 20px 0;
+  transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+}
+#navbar.scrolled {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border), var(--shadow-sm);
+  padding: 14px 0;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; }
+.nav-logo img {
+    width: 36px; height: 36px; flex-shrink: 0;
+}
+.logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+.logo-text-dark { color: var(--text); }
+.logo-text-dark span { color: var(--accent); }
+.logo-text-light { color: #fff; display: none; }
+.logo-text-light span { color: #93C5FD; }
+#navbar:not(.scrolled) .logo-text-dark { display: none; }
+#navbar:not(.scrolled) .logo-text-light { display: block; }
+
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-link {
+  position: relative; padding: 6px 14px;
+  font-size: 0.92rem; font-weight: 500;
+  color: rgba(43,46,51,0.8); transition: color var(--transition);
+}
+#navbar:not(.scrolled) .nav-link { color: rgba(255,255,255,0.85); }
+.nav-link::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 14px; right: 14px;
+  height: 2px; background: var(--accent); border-radius: 2px;
+  transform: scaleX(0); transition: transform var(--transition);
+}
+.nav-link:hover { color: var(--text); }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+#navbar:not(.scrolled) .nav-link:hover { color: #fff; }
+#navbar:not(.scrolled) .nav-link::after { background: #fff; }
+.nav-link.active-page { color: var(--accent); font-weight: 700; }
+#navbar:not(.scrolled) .nav-link.active-page { color: #93C5FD; }
+
+.nav-cta {
+  padding: 8px 20px; background: var(--accent); color: #fff !important;
+  border-radius: 30px; font-size: 0.9rem; font-weight: 600;
+  border: 2px solid var(--accent);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.nav-cta:hover { background: #1244B6; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,86,219,0.3); }
+#navbar:not(.scrolled) .nav-cta { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+#navbar:not(.scrolled) .hamburger span { background: #fff; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* =============================================
+   HERO — SERVICES
+   ============================================= */
+#services-hero {
+  min-height: 72vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 140px 32px 90px;
+  position: relative; overflow: hidden;
+  background: #060e1e;
+  text-align: center;
+}
+.hero-bg-gradient {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,86,219,0.35) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(59,130,246,0.2) 0%, transparent 60%),
+    linear-gradient(180deg, #060e1e 0%, #0a1833 60%, #0d1f4a 100%);
+}
+.hero-grid-lines {
+  position: absolute; inset: 0; z-index: 2;
+  background-image: linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-particles { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(59,130,246,0.4);
+  animation: particleFloat linear infinite;
+}
+.hero-content-wrap { position: relative; z-index: 4; max-width: 860px; }
+
+.breadcrumb {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.4);
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: #60A5FA; transition: color var(--transition); }
+.breadcrumb a:hover { color: #93C5FD; }
+.breadcrumb svg { width: 14px; height: 14px; opacity: 0.4; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px;
+  background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25);
+  border-radius: 30px; color: #93C5FD;
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 24px;
+}
+.eyebrow-dot { width: 6px; height: 6px; background: #3B82F6; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.7); } }
+
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 900; line-height: 1.1; color: #fff;
+  margin-bottom: 24px; letter-spacing: -0.02em;
+}
+.gradient-text {
+  background: linear-gradient(90deg, #60A5FA, #93C5FD, #BFDBFE);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub {
+  font-size: 1.15rem; color: rgba(255,255,255,0.58);
+  line-height: 1.75; margin-bottom: 44px; font-weight: 300;
+}
+
+.hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; background: var(--accent); color: #fff;
+  border-radius: 30px; font-weight: 600; font-size: 0.95rem;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  border: none; cursor: pointer; position: relative; overflow: hidden;
+}
+.btn-primary:hover { background: #1244B6; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,86,219,0.45); }
+.btn-primary svg { width: 18px; height: 18px; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; background: transparent;
+  color: rgba(255,255,255,0.8); border: 2px solid rgba(255,255,255,0.22);
+  border-radius: 30px; font-weight: 500; font-size: 0.95rem;
+  transition: all var(--transition); cursor: pointer;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+
+.hero-trust-row {
+  display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.4); font-size: 0.82rem; }
+.trust-item svg { width: 16px; height: 16px; color: #60A5FA; }
+.trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.1); }
+
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) scale(1); opacity: 0; }
+}
+
+/* =============================================
+   PAIN POINTS
+   ============================================= */
+.pain-section { background: var(--bg-white); }
+.pain-intro { text-align: center; margin-bottom: 56px; }
+.section-tag {
+  display: inline-block; padding: 5px 14px;
+  background: #FEF3C7; color: #92400E;
+  border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px;
+}
+.section-tag.blue { background: #EEF2FF; color: var(--accent); }
+.section-tag.green { background: #F0FDF4; color: #166534; }
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800; line-height: 1.2;
+  color: var(--text); margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.section-sub {
+  color: var(--text-secondary); font-size: 1rem;
+  max-width: 580px; margin: 0 auto; line-height: 1.7;
+}
+
+.pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pain-card {
+  background: #FFFBEB; border: 1px solid #FDE68A;
+  border-radius: var(--radius); padding: 28px;
+  position: relative; overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.pain-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.pain-card::before {
+  content: '"'; position: absolute; top: -10px; right: 16px;
+  font-family: var(--font-head); font-size: 80px; color: #FDE68A;
+  line-height: 1; pointer-events: none;
+}
+.pain-icon { margin-bottom: 16px; }
+.pain-icon svg { width: 32px; height: 32px; color: #D97706; }
+.pain-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.pain-card p { font-size: 0.87rem; color: #92400E; line-height: 1.6; }
+.pain-card .pain-cost {
+  margin-top: 14px; padding: 8px 12px;
+  background: rgba(217,119,6,0.1); border-radius: 8px;
+  font-size: 0.82rem; font-weight: 700; color: #B45309;
+}
+
+/* =============================================
+   PACKAGES SECTION
+   ============================================= */
+.packages-section { background: var(--bg); }
+.packages-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  align-items: start;
+}
+
+.pkg-card {
+  background: var(--bg-white); border: 2px solid var(--border);
+  border-radius: 20px; padding: 36px 32px;
+  position: relative; overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.pkg-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+.pkg-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 20px 60px rgba(26,86,219,0.16);
+  transform: translateY(-8px);
+}
+.pkg-card.featured:hover { transform: translateY(-14px); }
+.pkg-featured-badge {
+  position: absolute; top: 20px; right: 20px;
+  background: var(--accent); color: #fff;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 5px 12px; border-radius: 20px;
+}
+.pkg-featured-glow {
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(26,86,219,0.12), transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+
+.pkg-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 10px;
+  font-family: var(--font-head); font-size: 1.1rem; font-weight: 800;
+  margin-bottom: 20px;
+}
+.pkg-num.n1 { background: #EEF2FF; color: var(--accent); }
+.pkg-num.n2 { background: #F0FDF4; color: #16A34A; }
+.pkg-num.n3 { background: #0A1628; color: #60A5FA; }
+
+.pkg-card h3 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.pkg-subtitle { font-size: 0.82rem; color: var(--accent); font-weight: 600; letter-spacing: 0.03em; margin-bottom: 14px; }
+.pkg-target {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; color: var(--text-secondary);
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 20px; padding: 4px 12px; margin-bottom: 20px;
+}
+.pkg-target svg { width: 13px; height: 13px; }
+.pkg-tagline { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.4; }
+.pkg-tagline-sub { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.5; }
+
+.pkg-divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+.pkg-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.pkg-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; }
+.feature-check {
+  flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.feature-check.blue { background: #EEF2FF; }
+.feature-check.green { background: #F0FDF4; }
+.feature-check.dark { background: rgba(26,86,219,0.15); }
+.feature-check svg { width: 11px; height: 11px; }
+.feature-check.blue svg { color: var(--accent); }
+.feature-check.green svg { color: #16A34A; }
+.feature-check.dark svg { color: #60A5FA; }
+.pkg-feature-text strong { display: block; font-weight: 600; color: var(--text); line-height: 1.3; }
+.pkg-feature-text span { font-size: 0.81rem; color: var(--text-secondary); line-height: 1.4; }
+
+.pkg-pricing { margin-bottom: 24px; }
+.pkg-price-label { font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.pkg-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.pkg-price-num { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--text); }
+.pkg-price-unit { font-size: 0.82rem; color: var(--text-secondary); }
+.pkg-price-sub { font-size: 0.8rem; color: var(--text-secondary); }
+.pkg-timeline { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; }
+.pkg-timeline svg { width: 14px; height: 14px; color: var(--accent-light); }
+
+.pkg-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 13px 20px; border-radius: 30px;
+  font-family: var(--font-body); font-size: 0.92rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition); border: 2px solid var(--border);
+  background: var(--bg); color: var(--text);
+}
+.pkg-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pkg-btn.primary:hover { background: #1244B6; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,86,219,0.35); }
+.pkg-btn:hover { border-color: var(--accent); color: var(--accent); }
+.pkg-btn svg { width: 16px; height: 16px; }
+
+/* =============================================
+   PACKAGE 1 DEEP DIVE
+   ============================================= */
+.deep-dive-section { background: var(--bg-white); }
+
+.deep-hero {
+  background: linear-gradient(135deg, #0A1628 0%, #0D1F4A 60%, #0A2562 100%);
+  border-radius: 24px; padding: 56px 52px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  margin-bottom: 60px; position: relative; overflow: hidden;
+}
+.deep-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.deep-hero-blob {
+  position: absolute; top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(59,130,246,0.25), transparent 70%);
+  border-radius: 50%; filter: blur(40px); pointer-events: none;
+}
+.deep-hero-content { position: relative; z-index: 1; }
+.deep-hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3);
+  color: #4ADE80; border-radius: 20px; padding: 5px 14px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.deep-hero-tag svg { width: 13px; height: 13px; }
+.deep-hero h2 {
+  font-family: var(--font-head); font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 16px;
+}
+.deep-hero-sub { color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px; }
+.deep-hero-metrics { display: flex; gap: 28px; }
+.dhm-val { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: #fff; line-height: 1; }
+.dhm-val span { font-size: 1.1rem; color: #60A5FA; }
+.dhm-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+.deep-dashboard { position: relative; z-index: 1; }
+.dd-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 20px;
+  backdrop-filter: blur(16px); animation: float 6s ease-in-out infinite;
+}
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.dd-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.dd-title { font-size: 0.78rem; color: rgba(255,255,255,0.5); font-weight: 600; }
+.dd-live { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: #4ADE80; font-weight: 600; }
+.dd-live-dot { width: 6px; height: 6px; background: #4ADE80; border-radius: 50%; animation: pulse 1.5s infinite; }
+
+.dd-oee-ring { display: flex; align-items: center; justify-content: center; margin-bottom: 18px; position: relative; }
+.dd-oee-ring svg { width: 120px; height: 120px; transform: rotate(-90deg); }
+.oee-bg { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 8; }
+.oee-fill { fill: none; stroke: url(#oeeGrad); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 283; stroke-dashoffset: 60; transition: stroke-dashoffset 1.5s cubic-bezier(0.22,1,0.36,1); }
+.dd-oee-label { position: absolute; text-align: center; }
+.dd-oee-label .big { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: #fff; }
+.dd-oee-label .small { font-size: 0.68rem; color: rgba(255,255,255,0.4); }
+
+.dd-stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
+.dd-stat { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; text-align: center; }
+.dd-stat .v { font-size: 1rem; font-weight: 700; color: #fff; }
+.dd-stat .l { font-size: 0.66rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.dd-stat.good .v { color: #4ADE80; }
+.dd-stat.warn .v { color: #FCD34D; }
+
+.dd-alerts { display: flex; flex-direction: column; gap: 6px; }
+.dd-alert { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 8px 10px; font-size: 0.72rem; }
+.dd-alert-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dd-alert-dot.green { background: #4ADE80; }
+.dd-alert-dot.yellow { background: #FCD34D; }
+.dd-alert-dot.red { background: #F87171; }
+.dd-alert span { color: rgba(255,255,255,0.55); }
+.dd-alert strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+.feature-details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.fd-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative; overflow: hidden;
+}
+.fd-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(26,86,219,0.1); border-color: rgba(26,86,219,0.2); }
+.fd-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+}
+.fd-icon.blue { background: #EEF2FF; }
+.fd-icon.green { background: #F0FDF4; }
+.fd-icon.amber { background: #FFFBEB; }
+.fd-icon.purple { background: #F5F3FF; }
+.fd-icon.red { background: #FEF2F2; }
+.fd-icon.dark { background: #F0F9FF; }
+.fd-icon svg { width: 22px; height: 22px; }
+.fd-icon.blue svg { color: var(--accent); }
+.fd-icon.green svg { color: #16A34A; }
+.fd-icon.amber svg { color: #D97706; }
+.fd-icon.purple svg { color: #7C3AED; }
+.fd-icon.red svg { color: #DC2626; }
+.fd-icon.dark svg { color: #0369A1; }
+.fd-card h4 { font-size: 0.98rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.fd-card > p { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px; }
+.fd-benefit {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; font-weight: 600; color: var(--green);
+  background: #F0FDF4; border-radius: 20px; padding: 4px 12px; width: fit-content;
+}
+.fd-benefit svg { width: 12px; height: 12px; }
+
+/* =============================================
+   CUSTOM SOFTWARE SECTION
+   ============================================= */
+.custom-section { background: var(--bg); }
+.custom-inner { background: var(--bg-white); border: 1px solid var(--border); border-radius: 24px; overflow: hidden; }
+.custom-top { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; }
+.custom-left {
+  padding: 56px 52px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #060e1e, #0a1833);
+}
+.custom-left-blob {
+  position: absolute; bottom: -60px; left: -60px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(26,86,219,0.3), transparent 70%);
+  border-radius: 50%; filter: blur(40px);
+}
+.custom-left h2 {
+  font-family: var(--font-head); font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 16px; position: relative;
+}
+.custom-left p { color: rgba(255,255,255,0.5); font-size: 0.93rem; line-height: 1.75; margin-bottom: 28px; position: relative; }
+.custom-tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+.custom-tag {
+  padding: 5px 14px; background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 20px;
+  font-size: 0.78rem; color: rgba(255,255,255,0.55);
+}
+.custom-right { padding: 56px 52px; }
+.custom-right h3 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; color: var(--text); }
+.custom-services-list { display: flex; flex-direction: column; gap: 16px; }
+.cs-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--bg); transition: all var(--transition); cursor: pointer;
+}
+.cs-item:hover { border-color: var(--accent); background: #EEF2FF; }
+.cs-item-icon {
+  width: 38px; height: 38px; flex-shrink: 0; border-radius: 9px;
+  background: #EEF2FF; display: flex; align-items: center; justify-content: center;
+}
+.cs-item-icon svg { width: 18px; height: 18px; color: var(--accent); }
+.cs-item h5 { font-size: 0.9rem; font-weight: 700; margin-bottom: 3px; color: var(--text); }
+.cs-item p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; }
+.custom-cta-row {
+  padding: 32px 52px; background: #EEF2FF; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.custom-cta-text h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.custom-cta-text p { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* =============================================
+   INDUSTRY SOLUTIONS
+   ============================================= */
+.industry-section { background: var(--bg-white); }
+.industry-tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
+.ind-tab {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 30px;
+  border: 2px solid var(--border); background: var(--bg-white);
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+  color: var(--text-secondary); cursor: pointer; transition: all var(--transition);
+}
+.ind-tab svg { width: 16px; height: 16px; }
+.ind-tab:hover { border-color: var(--accent); color: var(--accent); }
+.ind-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ind-panel { display: none; }
+.ind-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.ind-content h3 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; color: var(--text); }
+.ind-content > p { font-size: 0.93rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px; }
+.ind-problems { margin-bottom: 24px; }
+.ind-problems h5 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--amber); margin-bottom: 10px; }
+.ind-problem-item { display: flex; align-items: center; gap: 8px; font-size: 0.87rem; color: var(--text-secondary); padding: 4px 0; }
+.ind-problem-item svg { width: 14px; height: 14px; color: #EF4444; flex-shrink: 0; }
+.ind-solutions h5 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 10px; }
+.ind-sol-item { display: flex; align-items: center; gap: 8px; font-size: 0.87rem; color: var(--text-secondary); padding: 4px 0; }
+.ind-sol-item svg { width: 14px; height: 14px; color: var(--green); flex-shrink: 0; }
+.ind-result {
+  margin-top: 24px; padding: 16px 20px;
+  background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.ind-result svg { width: 20px; height: 20px; color: var(--green); flex-shrink: 0; }
+.ind-result p { font-size: 0.87rem; color: #166534; font-weight: 600; }
+.ind-visual { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
+.ind-kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ind-kpi { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+.ind-kpi .kv { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: var(--text); }
+.ind-kpi .kv.up { color: var(--green); }
+.ind-kpi .kv.down { color: var(--accent); }
+.ind-kpi .kl { font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px; }
+
+/* =============================================
+   HOW WE WORK
+   ============================================= */
+.process-section { background: var(--bg); }
+.process-steps {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; position: relative;
+}
+.process-steps::before {
+  content: ''; position: absolute;
+  top: 36px; left: calc(12.5% + 20px); right: calc(12.5% + 20px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(26,86,219,0.2));
+  z-index: 0;
+}
+.process-step { text-align: center; position: relative; z-index: 1; }
+.ps-num-wrap { display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.ps-num {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 1.2rem; font-weight: 800;
+  box-shadow: 0 0 0 6px rgba(26,86,219,0.12);
+}
+.process-step h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+.process-step p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* =============================================
+   STATS
+   ============================================= */
+.stats-section {
+  background: linear-gradient(135deg, #0D1F4A, #0A2562);
+  padding: 80px 0; overflow: hidden;
+}
+.stats-grid { display: flex; align-items: center; justify-content: center; }
+.stat-item { flex: 1; text-align: center; padding: 0 40px; }
+.stat-num { font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; color: #fff; line-height: 1; }
+.stat-suffix { font-family: var(--font-head); font-size: clamp(1.5rem,3vw,2.5rem); font-weight: 700; color: #60A5FA; }
+.stat-item p { color: rgba(255,255,255,0.45); font-size: 0.88rem; margin-top: 8px; }
+.stat-divider { width: 1px; height: 70px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
+
+/* =============================================
+   CTA
+   ============================================= */
+.cta-section {
+  background: linear-gradient(135deg, #0A1628 0%, #0D1F4A 60%, #0A2562 100%);
+  padding: 120px 0; overflow: hidden;
+}
+.cta-blobs { position: absolute; inset: 0; pointer-events: none; }
+.cta-blob-1 {
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(59,130,246,0.2), transparent 70%);
+  border-radius: 50%; filter: blur(40px);
+}
+.cta-blob-2 {
+  position: absolute; bottom: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(26,86,219,0.15), transparent 70%);
+  border-radius: 50%; filter: blur(40px);
+}
+.cta-inner { text-align: center; position: relative; z-index: 2; }
+.cta-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #60A5FA; margin-bottom: 16px; }
+.cta-inner h2 { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 18px; }
+.cta-inner > p { color: rgba(255,255,255,0.5); font-size: 1rem; margin-bottom: 40px; }
+.cta-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 48px; }
+.cta-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 20px 28px;
+  display: flex; align-items: center; gap: 12px; text-align: left;
+}
+.cta-card-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(59,130,246,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cta-card-icon svg { width: 20px; height: 20px; color: #60A5FA; }
+.cta-card strong { display: block; color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 3px; }
+.cta-card span { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer { background: #2B2E33; color: rgba(255,255,255,0.7); }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 72px 32px 48px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px;
+}
+.footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.38); line-height: 1.7; margin: 16px 0 24px; }
+.footer-socials { display: flex; gap: 10px; }
+.social-icon {
+  width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.4); transition: all var(--transition);
+}
+.social-icon svg { width: 16px; height: 16px; }
+.social-icon:hover { border-color: var(--accent-light); color: var(--accent-light); background: rgba(59,130,246,0.1); }
+.footer-links-col h5, .footer-contact-col h5 {
+  font-family: var(--font-head); font-size: 0.85rem; font-weight: 700;
+  color: #fff; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px;
+}
+.footer-links-col ul li a { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.4); padding: 5px 0; transition: color var(--transition); }
+.footer-links-col ul li a:hover { color: var(--accent-light); }
+.footer-contact-col { display: flex; flex-direction: column; gap: 16px; }
+.fc-item { display: flex; gap: 12px; align-items: flex-start; }
+.fc-item svg { width: 18px; height: 18px; color: var(--accent-light); flex-shrink: 0; margin-top: 2px; }
+.fc-item a, .fc-item span { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.6; transition: color var(--transition); }
+.fc-item a:hover { color: var(--accent-light); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto; padding: 20px 32px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.82rem; color: rgba(255,255,255,0.25);
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+.reveal-fade { opacity: 0; transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1); }
+.reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+.reveal-scale { opacity: 0; transform: scale(0.9); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+.revealed { opacity: 1 !important; transform: translate(0,0) scale(1) !important; }
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+
+.ripple { position: relative; overflow: hidden; }
+.ripple-wave {
+  position: absolute; border-radius: 50%;
+  background: rgba(255,255,255,0.25); transform: scale(0);
+  animation: rippleAnim 0.65s cubic-bezier(0.4,0,0.2,1); pointer-events: none;
+}
+@keyframes rippleAnim { to { transform: scale(4.5); opacity: 0; } }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1100px) {
+  .packages-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+  .pkg-card.featured { transform: none; }
+  .feature-details-grid { grid-template-columns: repeat(2, 1fr); }
+  .deep-hero { grid-template-columns: 1fr; gap: 36px; }
+  .process-steps { grid-template-columns: repeat(2,1fr); }
+  .process-steps::before { display: none; }
+  .custom-top { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .pain-grid { grid-template-columns: 1fr 1fr; }
+  .ind-panel.active { grid-template-columns: 1fr; }
+  .stats-grid { flex-wrap: wrap; gap: 40px; }
+  .stat-divider { display: none; }
+  .stat-item { flex: unset; min-width: 140px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .section { padding: 72px 0; }
+  .nav-inner { padding: 0 20px; }
+  .hamburger { display: flex; }
+  .nav-links {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    background: var(--bg-white); flex-direction: column; align-items: flex-start;
+    padding: 80px 32px 40px; gap: 4px;
+    box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+    transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+  .nav-links.open { right: 0; }
+  .nav-link { color: var(--text) !important; width: 100%; padding: 10px 0; }
+  .nav-link::after { background: var(--accent) !important; }
+  .logo-text-dark { display: block !important; }
+  .logo-text-light { display: none !important; }
+  .pain-grid { grid-template-columns: 1fr; }
+  .feature-details-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .deep-hero { padding: 32px 24px; }
+  .custom-left, .custom-right { padding: 32px 24px; }
+  .custom-cta-row { flex-direction: column; padding: 24px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .industry-tabs { gap: 6px; }
+  .ind-tab { padding: 8px 14px; font-size: 0.82rem; }
+  .hero-trust-row { gap: 16px; }
+  .trust-sep { display: none; }
+  .deep-hero-metrics { gap: 16px; }
+  .cta-cards { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  #services-hero { padding: 120px 20px 72px; }
+  .process-steps { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- SKELETON LOADER -->
+<div id="skeleton-overlay">
+  <div class="sk-logo-pulse">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+  </div>
+  <p class="sk-text">Sanjeevni Techno</p>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/img/logo.png" alt="" srcset="">
+      <span class="logo-text-dark">Sanjeevni<span> Techno</span></span>
+      <span class="logo-text-light">Sanjeevni<span> Techno</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/services" class="nav-link active-page">Services</a>
+      <a href="/#portfolio" class="nav-link">Portfolio</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/#enquiry" class="nav-cta nav-link ripple">Get Free Audit</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="services-hero">
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content-wrap">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      <span>Services</span>
+    </div>
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      Intelligent Systems for Every Business
+    </div>
+    <h1 class="hero-title">
+      Give Your Business a<br/>
+      <span class="gradient-text">Digital Intelligence Layer</span>
+    </h1>
+    <p class="hero-sub">
+      From manual, paper-based processes to real-time digital dashboards —<br/>
+      we build the systems that help your business operate smarter,<br/>
+      faster, and with measurable results.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#packages" class="btn-primary ripple">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h14M10 3l7 7-7 7"/></svg>
+        See Our Packages
+      </a>
+      <a href="#enquiry" class="btn-outline">
+        Free Consultation
+      </a>
+    </div>
+    <div class="hero-trust-row">
+      <div class="trust-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M5 7a7 7 0 1 0 14 0A7 7 0 0 0 5 7z"/></svg>
+        Live in 3–4 weeks
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"/></svg>
+        Works with Tally, SAP, ERPNext
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8c0 5.5-7 10-7 10S3 13.5 3 8a7 7 0 0 1 14 0z"/></svg>
+        Pan-India Support
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h4l2 9 3-6h5"/></svg>
+        ROI in under 12 months
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain-section section" id="pain-points">
+  <div class="container">
+    <div class="pain-intro">
+      <div class="section-tag">Common Business Problems</div>
+      <h2 class="section-title">Does Any of This Sound Familiar?</h2>
+      <p class="section-sub">
+        If you recognise even one of these challenges in your business, it is time for us to have a conversation.
+        These everyday problems are quietly costing you far more than you realise.
+      </p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal-up">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg>
+        </div>
+        <h4>Shift Reports on Paper, Data Missing by Morning</h4>
+        <p>The supervisor recorded production numbers — but how accurate are they? Nobody truly knows what happened on the floor until it is far too late to act.</p>
+        <div class="pain-cost">⚠ 2–3 hours lost every day just finding and reconciling data</div>
+      </div>
+      <div class="pain-card reveal-up delay-1">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <h4>A Machine Stopped — You Found Out 2 Hours Later</h4>
+        <p>No one was watching. No alert was sent. Two hours of lost output and missed targets — all because there was no system in place to notify the right people in real time.</p>
+        <div class="pain-cost">⚠ Average ₹15–50L/year lost to unplanned downtime</div>
+      </div>
+      <div class="pain-card reveal-up delay-2">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h4>Energy Bills Keep Climbing With No Explanation</h4>
+        <p>Your electricity bill grows every month, but which machines or processes are responsible? Is power being consumed during idle time? Without data, there are no answers.</p>
+        <div class="pain-cost">⚠ 15–25% energy is typically wasted in unmonitored operations</div>
+      </div>
+      <div class="pain-card reveal-up delay-1">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14l-4-4 4-4M15 10H5M15 10a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+        </div>
+        <h4>Too Much Rework, Too Many Returns, Unhappy Clients</h4>
+        <p>Defects are slipping through despite manual checks. Quality issues are inconsistent and hard to trace back to a root cause. Customer confidence is eroding.</p>
+        <div class="pain-cost">⚠ 3–8% rejection rates translate to crores in annual losses</div>
+      </div>
+      <div class="pain-card reveal-up delay-2">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h4>No Visibility Into Stock or Material Movement</h4>
+        <p>Is raw material available? Has it reached the production line on time? Urgent orders are delayed because no one has a live view of inventory and material flow.</p>
+        <div class="pain-cost">⚠ 10–20% excess inventory held due to poor visibility</div>
+      </div>
+      <div class="pain-card reveal-up delay-3">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Audit Prep Takes Days of Frantic Manual Work</h4>
+        <p>Every compliance audit triggers a scramble — pulling records from scattered spreadsheets, filling in gaps, and hoping nothing is missed. There has to be a better way.</p>
+        <div class="pain-cost">⚠ Non-compliance penalties and missed contracts at stake</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages-section section" id="packages">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-tag blue">Our Service Packages</div>
+      <h2 class="section-title reveal-up">The Right Package for Your Business</h2>
+      <p class="section-sub reveal-up delay-1">From small growing businesses to large enterprise operations — every organisation gets a tailored system. No unnecessary extras, just exactly what you need.</p>
+    </div>
+    <div class="packages-grid">
+
+      <!-- PACKAGE 1 — FEATURED -->
+      <div class="pkg-card featured reveal-scale delay-1">
+        <div class="pkg-featured-glow"></div>
+        <div class="pkg-featured-badge">⚡ Most Popular</div>
+        <div class="pkg-num n1">1</div>
+        <h3>Operations Control System</h3>
+        <div class="pkg-subtitle">Digital Command Centre for Your Business</div>
+        <div class="pkg-target">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+          Small &amp; Growing Businesses (50–500 staff)
+        </div>
+        <p class="pkg-tagline">"Stop Running on Paper.<br/>Start Running on Data."</p>
+        <p class="pkg-tagline-sub">While you are managing on spreadsheets and registers, your competitors are making decisions with live data. This is the gap we close.</p>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="pkg-feature">
+            <div class="feature-check blue"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Digital Job Cards &amp; Shift Tracking</strong>
+              <span>Every shift's output recorded in real time — no paper registers, no data loss</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check blue"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Live Performance Dashboard</strong>
+              <span>Availability, Performance, Quality — the three numbers that tell you the true health of your operations</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check blue"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Downtime Reason Tracking</strong>
+              <span>Plan vs Actual — know exactly what stopped, when, why, and for how long</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check blue"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Instant WhatsApp &amp; SMS Alerts</strong>
+              <span>The moment something stops — the right people get notified instantly. No extra app needed.</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check blue"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Automated Compliance Reporting</strong>
+              <span>Audit-ready reports generated with one click — what used to take days now takes 15 minutes</span>
+            </div>
+          </div>
+        </div>
+        <div class="pkg-divider"></div>
+       <!--        <button class="pkg-btn primary ripple" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h12M9 3l6 6-6 6"/></svg>
+          Start with Package 1 — Free Demo
+        </button>
+        -->
+
+      </div>
+
+      <!-- PACKAGE 2 -->
+      <div class="pkg-card reveal-scale delay-2">
+        <div class="pkg-num n2">2</div>
+        <h3>Cost Reduction System</h3>
+        <div class="pkg-subtitle" style="color:#16A34A;">Energy, Machine Health &amp; Efficiency</div>
+        <div class="pkg-target">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+          Mid-Size Operations Across Sectors
+        </div>
+        <p class="pkg-tagline">"Cut Operating Costs by 15%.<br/>Predict Problems Before They Happen."</p>
+        <p class="pkg-tagline-sub">IoT sensors monitor your equipment's health around the clock — eliminating energy waste and catching failures before they cause disruption.</p>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="pkg-feature">
+            <div class="feature-check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>IoT Sensor Retrofit</strong>
+              <span>Add vibration and temperature sensors to existing equipment — no need to replace what you already have</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Energy Management System</strong>
+              <span>See exactly which equipment is consuming how much power — documented savings of 15% on average</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Live Equipment Health Monitor</strong>
+              <span>Real-time signals from critical machinery — early warning before a small issue becomes a costly breakdown</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Inventory &amp; Material Tracking (RFID/Barcode)</strong>
+              <span>Live status of every item from store to point of use — no more guesswork</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>ERP Integration (Tally / SAP / ERPNext)</strong>
+              <span>Floor-level data flows directly into your existing ERP — manual double-entry eliminated entirely</span>
+            </div>
+          </div>
+        </div>
+        <div class="pkg-divider"></div>
+        <!--
+        <button class="pkg-btn ripple" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h12M9 3l6 6-6 6"/></svg>
+          Get Package 2 Proposal
+        </button>
+        -->
+      </div>
+
+      <!-- PACKAGE 3 -->
+      <div class="pkg-card reveal-scale delay-3">
+        <div class="pkg-num n3">3</div>
+        <h3>Autonomous Operations Layer</h3>
+        <div class="pkg-subtitle" style="color:#60A5FA;">AI-Powered Smart Systems</div>
+        <div class="pkg-target">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+          Large Enterprise &amp; High-Precision Operations
+        </div>
+        <p class="pkg-tagline">"Zero Defect.<br/>Zero Downtime. Seriously."</p>
+        <p class="pkg-tagline-sub">Enterprise-grade AI technology deployed at your facility — predict failures before they occur, automate inspection, and optimise every process with data.</p>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="pkg-feature">
+            <div class="feature-check dark"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Predictive Maintenance (AI)</strong>
+              <span>Machine learning models calculate remaining useful life and flag maintenance windows before failures occur</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check dark"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>AI Vision Quality Inspection</strong>
+              <span>Camera-based defect detection using computer vision — over 30% improvement on manual inspection accuracy</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check dark"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>AI-Driven Process Optimisation</strong>
+              <span>Reduce WIP, cut material waste, and automate scheduling decisions with intelligent demand modelling</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check dark"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Digital Twin Simulation</strong>
+              <span>Test changes in a virtual model before applying them on the ground — de-risked continuous improvement</span>
+            </div>
+          </div>
+          <div class="pkg-feature">
+            <div class="feature-check dark"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+            <div class="pkg-feature-text">
+              <strong>Robotics &amp; Automation Integration</strong>
+              <span>Guidance and integration for cobot and robotic systems handling repetitive, high-volume tasks</span>
+            </div>
+          </div>
+        </div>
+        <div class="pkg-divider"></div>
+       
+        <button class="pkg-btn ripple" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h12M9 3l6 6-6 6"/></svg>
+          Talk to Our AI Team
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGE 1 DEEP DIVE -->
+<section class="deep-dive-section section" id="package-1-details">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-tag blue">Package 1 — Deep Dive</div>
+      <h2 class="section-title reveal-up">How the Operations Control System Works</h2>
+      <p class="section-sub reveal-up delay-1">Everything you currently walk into the office to find out — available on your screen in real time. No complex training, no dedicated IT team required.</p>
+    </div>
+
+    <div class="deep-hero reveal-up">
+      <div class="deep-hero-blob"></div>
+      <div class="deep-hero-content">
+        <div class="deep-hero-tag">
+          <svg viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="4"/></svg>
+          Live in Any Business Environment
+        </div>
+        <h2>Your Control Room,<br/>In Your Pocket</h2>
+        <p class="deep-hero-sub">
+          Check from home before you even leave — which shifts are running, what the performance score looks like, whether anything has stopped. Full visibility before you arrive.
+        </p>
+        <div class="deep-hero-metrics">
+          <div class="dhm-item">
+            <div class="dhm-val">22<span>%</span></div>
+            <div class="dhm-lbl">Average Downtime<br/>Reduction in 6 Months</div>
+          </div>
+          <div class="dhm-item">
+            <div class="dhm-val">₹2.3<span>Cr</span></div>
+            <div class="dhm-lbl">Documented Savings<br/>in Year One</div>
+          </div>
+          <div class="dhm-item">
+            <div class="dhm-val">3–4<span>wks</span></div>
+            <div class="dhm-lbl">Go-Live<br/>Timeline</div>
+          </div>
+        </div>
+      </div>
+      <div class="deep-dashboard">
+        <div class="dd-card">
+          <svg style="display:none" height="0" width="0">
+            <defs>
+              <linearGradient id="oeeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#1A56DB"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="dd-topbar">
+            <span class="dd-title">Live Operations Dashboard</span>
+            <span class="dd-live"><span class="dd-live-dot"></span>LIVE</span>
+          </div>
+          <div class="dd-oee-ring">
+            <svg viewBox="0 0 120 120">
+              <circle class="oee-bg" cx="60" cy="60" r="45"/>
+              <circle class="oee-fill" id="oeeFill" cx="60" cy="60" r="45"/>
+            </svg>
+            <div class="dd-oee-label">
+              <div class="big" id="oeeVal">0%</div>
+              <div class="small">Performance Score</div>
+            </div>
+          </div>
+          <div class="dd-stats-row">
+            <div class="dd-stat good">
+              <div class="v" id="dashAvail">0%</div>
+              <div class="l">Availability</div>
+            </div>
+            <div class="dd-stat">
+              <div class="v" id="dashPerf">0%</div>
+              <div class="l">Throughput</div>
+            </div>
+            <div class="dd-stat good">
+              <div class="v" id="dashQual">0%</div>
+              <div class="l">Quality Rate</div>
+            </div>
+          </div>
+          <div class="dd-alerts">
+            <div class="dd-alert">
+              <div class="dd-alert-dot green"></div>
+              <span><strong>Line A:</strong> Running — 247 units/hr on target</span>
+            </div>
+            <div class="dd-alert">
+              <div class="dd-alert-dot yellow"></div>
+              <span><strong>Line B:</strong> Speed alert — 18 min downtime logged</span>
+            </div>
+            <div class="dd-alert">
+              <div class="dd-alert-dot green"></div>
+              <span><strong>Line C:</strong> On schedule — Shift 2 proceeding normally</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-details-grid">
+      <div class="fd-card reveal-up">
+        <div class="fd-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h4>Digital Job Cards &amp; Shift Log</h4>
+        <p>Operators enter production data on their mobile or tablet. Supervisor sign-off is digital. The shift-end report generates automatically. Paper is eliminated and data is always 100% accurate.</p>
+        <div class="fd-benefit"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg> Saves 3+ hours of data entry every day</div>
+      </div>
+      <div class="fd-card reveal-up delay-1">
+        <div class="fd-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h4>Live Performance Dashboard</h4>
+        <p>Every line's performance score is visible in real time. Availability, throughput, and quality — three numbers that tell you the genuine health of your operation at a glance.</p>
+        <div class="fd-benefit"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg> Average 12–18% efficiency improvement in 6 months</div>
+      </div>
+      <div class="fd-card reveal-up delay-2">
+        <div class="fd-icon amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h4>Downtime Reason Tracker</h4>
+        <p>When something stops, the operator selects a reason immediately — mechanical, electrical, material shortage, operator, and so on. Month-end Pareto analysis reveals exactly what is costing you the most.</p>
+        <div class="fd-benefit"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg> Top 3 downtime causes identified in week one</div>
+      </div>
+      <div class="fd-card reveal-up delay-1">
+        <div class="fd-icon red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12 19.79 19.79 0 0 1 1.27 3.35 2 2 0 0 1 3.23 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.72-.72a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16z"/></svg>
+        </div>
+        <h4>Instant WhatsApp Alert System</h4>
+        <p>The moment something goes wrong, the right people receive a WhatsApp notification within 30 seconds. Define who gets notified for which event. No extra app, no training required.</p>
+        <div class="fd-benefit"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg> Response time drops from 2 hours to 8 minutes</div>
+      </div>
+      <div class="fd-card reveal-up delay-2">
+        <div class="fd-icon purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h4>Automated Compliance Reports</h4>
+        <p>Audit-ready reports generated with a single click. What previously required 3 days of manual compilation now takes 15 minutes. Customer traceability records are always instantly accessible.</p>
+        <div class="fd-benefit"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg> Audit preparation: 3 days → 15 minutes</div>
+      </div>
+      <div class="fd-card reveal-up delay-3">
+        <div class="fd-icon dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>Works on Any Device, Anywhere</h4>
+        <p>From an older Android phone on the floor to the MD's laptop in the boardroom — it works everywhere. Offline mode available where connectivity is limited, syncing automatically when restored.</p>
+        <div class="fd-benefit"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg> Zero additional hardware investment needed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM SOFTWARE -->
+<section class="custom-section section" id="custom-software">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-tag blue">Beyond Packages</div>
+      <h2 class="section-title reveal-up">Custom Software Development<br/>For Your Business</h2>
+      <p class="section-sub reveal-up delay-1">When standard packages do not fully fit your needs — we build it. Your process, your workflow, your solution.</p>
+    </div>
+    <div class="custom-inner reveal-up">
+      <div class="custom-top">
+        <div class="custom-left">
+          <div class="custom-left-blob"></div>
+          <div style="position:relative;">
+            <div class="hero-eyebrow" style="margin-bottom:20px;">
+              <span class="eyebrow-dot"></span> Bespoke Development
+            </div>
+            <h2>Every Business is Different.<br/>Your Software Should Be Too.</h2>
+            <p>If off-the-shelf solutions have never quite fit your process, that is because your operation is unique. We build custom software, mobile applications, and automation tools specifically for your workflows — nothing generic, nothing wasted.</p>
+            <div class="custom-tags">
+              <span class="custom-tag">React / Next.js</span>
+              <span class="custom-tag">Python / AI &amp; ML</span>
+              <span class="custom-tag">Node.js</span>
+              <span class="custom-tag">IoT Integration</span>
+              <span class="custom-tag">Mobile Apps</span>
+              <span class="custom-tag">ERP Connectors</span>
+              <span class="custom-tag">WhatsApp Bots</span>
+              <span class="custom-tag">Computer Vision</span>
+            </div>
+          </div>
+        </div>
+        <div class="custom-right">
+          <h3>Popular Custom Builds</h3>
+          <div class="custom-services-list">
+            <div class="cs-item">
+              <div class="cs-item-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h12M4 10h12M4 15h7"/></svg></div>
+              <div>
+                <h5>Custom Dispatch &amp; Delivery System</h5>
+                <p>Digital delivery notes, e-way bill integration, and outbound tracking — fully paperless logistics.</p>
+              </div>
+            </div>
+            <div class="cs-item">
+              <div class="cs-item-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M7 8h6M7 12h4"/></svg></div>
+              <div>
+                <h5>Staff Attendance &amp; Productivity Tracker</h5>
+                <p>Biometric or QR-based attendance, automated wage calculations, and shift performance dashboards.</p>
+              </div>
+            </div>
+            <div class="cs-item">
+              <div class="cs-item-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3v14M3 10h14"/></svg></div>
+              <div>
+                <h5>Vendor &amp; Procurement Portal</h5>
+                <p>Supplier PO management, quotation comparison, and automated GRN matching against invoices.</p>
+              </div>
+            </div>
+            <div class="cs-item">
+              <div class="cs-item-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="7"/><path d="M10 7v3l2.5 2.5"/></svg></div>
+              <div>
+                <h5>Preventive Maintenance Scheduler</h5>
+                <p>Equipment-wise maintenance schedules, automatic technician reminders, and spare parts consumption tracking.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-cta-row">
+        <div class="custom-cta-text">
+          <h4>Need Something Specific? Let's Talk.</h4>
+          <p>A free 30-minute consultation — tell us the problem and we will outline the solution.</p>
+        </div>
+        <a href="#enquiry" class="btn-primary ripple" style="white-space:nowrap;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h14M10 3l7 7-7 7"/></svg>
+          Book a Free Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY SOLUTIONS -->
+<section class="industry-section section" id="industry-solutions">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-tag blue">By Sector</div>
+      <h2 class="section-title reveal-up">Solutions Tailored<br/>to Your Industry</h2>
+      <p class="section-sub reveal-up delay-1">Every industry faces its own distinct challenges. We understand the specific problems in each sector and build accordingly.</p>
+    </div>
+
+    <div class="industry-tabs reveal-up delay-1">
+      <button class="ind-tab active" data-panel="manufacturing">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="3"/></svg>
+        Manufacturing
+      </button>
+      <button class="ind-tab" data-panel="logistics">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="11" r="2"/><circle cx="11" cy="11" r="2"/><path d="M3 11H2V7l2-3h7l2 3v4h-1M7 8H4.5"/></svg>
+        Logistics &amp; Warehousing
+      </button>
+      <button class="ind-tab" data-panel="healthcare">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2h4v3l2 2v7H4V7l2-2V2z"/><path d="M6 7h4"/></svg>
+        Healthcare &amp; Life Sciences
+      </button>
+      <button class="ind-tab" data-panel="retail">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4-4 4M14 4l-4 4 4 4M7 2v12"/></svg>
+        Retail &amp; Distribution
+      </button>
+    </div>
+
+    <div class="industry-panels" id="industryPanels">
+
+      <!-- MANUFACTURING -->
+      <div class="ind-panel active" data-panel="manufacturing">
+        <div class="ind-content reveal-left">
+          <h3>Manufacturing &amp; Industrial Operations</h3>
+          <p>In manufacturing, cycle time consistency and output quality are the two biggest levers of profitability. Even a small process improvement, applied consistently, delivers significant returns over the year.</p>
+          <div class="ind-problems">
+            <h5>🔴 Common Challenges</h5>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Cycle times vary across shifts with no clear root cause</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Scrap and rework not systematically tracked — raw material costs creep upward</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Changeover and setup times excessive — overall efficiency suffers</div>
+          </div>
+          <div class="ind-solutions">
+            <h5>✅ Our Approach</h5>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Real-time cycle monitoring with automatic drift alerts</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Automated scrap weight logging per production order</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Digital changeover analysis to identify and eliminate time waste</div>
+          </div>
+          <div class="ind-result">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"/></svg>
+            <p>Typical outcome: 30–35% scrap reduction and 10–15% efficiency improvement within 3 months</p>
+          </div>
+        </div>
+        <div class="ind-visual reveal-right">
+          <div class="ind-kpi-grid">
+            <div class="ind-kpi"><div class="kv up">-35%</div><div class="kl">Scrap Reduction</div></div>
+            <div class="ind-kpi"><div class="kv down">+12%</div><div class="kl">Cycle Time Improvement</div></div>
+            <div class="ind-kpi"><div class="kv up">+18%</div><div class="kl">Efficiency Gain</div></div>
+            <div class="ind-kpi"><div class="kv down">₹8L+</div><div class="kl">Average Annual Savings</div></div>
+          </div>
+          <div style="margin-top:16px;padding:16px;background:var(--bg-white);border-radius:12px;border:1px solid var(--border);">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--text-secondary);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;">Recommended Starting Point</div>
+            <div style="font-size:0.95rem;font-weight:700;color:var(--accent);">Package 1 — Operations Control System</div>
+            <div style="font-size:0.83rem;color:var(--text-secondary);margin-top:4px;">Begin with live tracking and scrap monitoring. Upgrade to Package 2 within 6 months.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGISTICS -->
+      <div class="ind-panel" data-panel="logistics">
+        <div class="ind-content reveal-left">
+          <h3>Logistics, Warehousing &amp; Distribution</h3>
+          <p>In logistics, delivery accuracy and inventory precision are everything. A missed dispatch or a stockout does not just cost money — it costs client trust and long-term contracts.</p>
+          <div class="ind-problems">
+            <h5>🔴 Common Challenges</h5>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>No real-time visibility of stock across locations</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Dispatch errors causing returns and client complaints</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Vehicle and route utilisation not optimised</div>
+          </div>
+          <div class="ind-solutions">
+            <h5>✅ Our Approach</h5>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Live inventory tracking with RFID and barcode scanning</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Digital dispatch and e-way bill integration</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Route and vehicle utilisation dashboards with delay alerts</div>
+          </div>
+          <div class="ind-result">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"/></svg>
+            <p>Typical outcome: Dispatch accuracy above 99%, inventory holding reduced by 20%</p>
+          </div>
+        </div>
+        <div class="ind-visual reveal-right">
+          <div class="ind-kpi-grid">
+            <div class="ind-kpi"><div class="kv up">99%+</div><div class="kl">Dispatch Accuracy</div></div>
+            <div class="ind-kpi"><div class="kv down">-20%</div><div class="kl">Inventory Holding</div></div>
+            <div class="ind-kpi"><div class="kv up">-40%</div><div class="kl">Return Rate</div></div>
+            <div class="ind-kpi"><div class="kv down">+25%</div><div class="kl">Fleet Utilisation</div></div>
+          </div>
+          <div style="margin-top:16px;padding:16px;background:var(--bg-white);border-radius:12px;border:1px solid var(--border);">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--text-secondary);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;">Recommended Starting Point</div>
+            <div style="font-size:0.95rem;font-weight:700;color:#16A34A;">Package 2 — Cost Reduction System</div>
+            <div style="font-size:0.83rem;color:var(--text-secondary);margin-top:4px;">IoT tracking + ERP integration. Strong ROI within 12 months.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HEALTHCARE -->
+      <div class="ind-panel" data-panel="healthcare">
+        <div class="ind-content reveal-left">
+          <h3>Healthcare &amp; Life Sciences</h3>
+          <p>In healthcare and regulated industries, a single traceability gap can mean a recall, a regulator warning, or a lost export licence. Compliance must be automated — human error is not an option.</p>
+          <div class="ind-problems">
+            <h5>🔴 Common Challenges</h5>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Batch records maintained manually — errors surface during audits</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Temperature and environmental logs done by hand</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>CAPA and deviation tracking scattered and inconsistent</div>
+          </div>
+          <div class="ind-solutions">
+            <h5>✅ Our Approach</h5>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Electronic batch manufacturing records (eBMR) with full traceability</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>IoT-based temperature and humidity logging with automated alerts</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Digital CAPA and deviation management with workflow enforcement</div>
+          </div>
+          <div class="ind-result">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"/></svg>
+            <p>Typical outcome: Full batch traceability, 80% reduction in audit preparation time</p>
+          </div>
+        </div>
+        <div class="ind-visual reveal-right">
+          <div class="ind-kpi-grid">
+            <div class="ind-kpi"><div class="kv up">100%</div><div class="kl">Batch Traceability</div></div>
+            <div class="ind-kpi"><div class="kv down">-80%</div><div class="kl">Audit Prep Time</div></div>
+            <div class="ind-kpi"><div class="kv up">-20%</div><div class="kl">Overstock Reduction</div></div>
+            <div class="ind-kpi"><div class="kv down">Zero</div><div class="kl">Manual Env. Logs</div></div>
+          </div>
+          <div style="margin-top:16px;padding:16px;background:var(--bg-white);border-radius:12px;border:1px solid var(--border);">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--text-secondary);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;">Recommended Starting Point</div>
+            <div style="font-size:0.95rem;font-weight:700;color:#7C3AED;">Package 3 + Custom Compliance Module</div>
+            <div style="font-size:0.83rem;color:var(--text-secondary);margin-top:4px;">Traceability + AI + regulatory reporting. Mission-critical environments.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RETAIL -->
+      <div class="ind-panel" data-panel="retail">
+        <div class="ind-content reveal-left">
+          <h3>Retail, FMCG &amp; Distribution Networks</h3>
+          <p>In retail and FMCG, demand forecasting and shelf availability are the difference between growth and stagnation. One stockout at a peak moment can lose customers permanently.</p>
+          <div class="ind-problems">
+            <h5>🔴 Common Challenges</h5>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Demand forecasting done on instinct rather than data</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>Stockouts and overstocking happening simultaneously across locations</div>
+            <div class="ind-problem-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l10 10M12 2L2 12"/></svg>No unified view across multiple outlets or warehouses</div>
+          </div>
+          <div class="ind-solutions">
+            <h5>✅ Our Approach</h5>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>AI-powered demand forecasting by SKU and location</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Unified inventory dashboard across all outlets and warehouses</div>
+            <div class="ind-sol-item"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>Automated replenishment alerts and supplier order triggers</div>
+          </div>
+          <div class="ind-result">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"/></svg>
+            <p>Typical outcome: 20% overstock reduction, 16% improvement in peak-season fulfilment</p>
+          </div>
+        </div>
+        <div class="ind-visual reveal-right">
+          <div class="ind-kpi-grid">
+            <div class="ind-kpi"><div class="kv up">-20%</div><div class="kl">Overstock Reduction</div></div>
+            <div class="ind-kpi"><div class="kv down">+16%</div><div class="kl">Peak Fulfilment</div></div>
+            <div class="ind-kpi"><div class="kv up">-35%</div><div class="kl">Stockout Incidents</div></div>
+            <div class="ind-kpi"><div class="kv down">+22%</div><div class="kl">Revenue Visibility</div></div>
+          </div>
+          <div style="margin-top:16px;padding:16px;background:var(--bg-white);border-radius:12px;border:1px solid var(--border);">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--text-secondary);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;">Recommended Starting Point</div>
+            <div style="font-size:0.95rem;font-weight:700;color:var(--accent);">Package 1 + AI Demand Module</div>
+            <div style="font-size:0.83rem;color:var(--text-secondary);margin-top:4px;">Start with live inventory tracking, add AI forecasting in phase 2.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="process-section section" id="how-we-work">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-tag blue">Our Process</div>
+      <h2 class="section-title reveal-up">How We Work With You</h2>
+      <p class="section-sub reveal-up delay-1">Four clear steps — the first one costs you nothing. No commitment required, just an honest conversation about your business.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal-up">
+        <div class="ps-num-wrap"><div class="ps-num">1</div></div>
+        <h4>Free Business Audit</h4>
+        <p>We visit your site or connect on a video call and take the time to understand your current operations. We tell you honestly which problems are costing you the most — with no sales agenda.</p>
+      </div>
+      <div class="process-step reveal-up delay-1">
+        <div class="ps-num-wrap"><div class="ps-num">2</div></div>
+        <h4>Tailored Proposal</h4>
+        <p>Within 3 days of the audit, you receive a proposal built specifically around your business size, sector, and budget. No generic quotes — only what you actually need.</p>
+      </div>
+      <div class="process-step reveal-up delay-2">
+        <div class="ps-num-wrap"><div class="ps-num">3</div></div>
+        <h4>Pilot Deployment</h4>
+        <p>We start small — one line, one location, one process. Live within 3–4 weeks. We measure ROI together with you — clearly and in real numbers.</p>
+      </div>
+      <div class="process-step reveal-up delay-3">
+        <div class="ps-num-wrap"><div class="ps-num">4</div></div>
+        <h4>Scale &amp; Ongoing Support</h4>
+        <p>Once results are confirmed, we roll out across the rest of your business. Continued support, model updates, and team training are our ongoing responsibility.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section section" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div><span class="stat-num" data-target="22">0</span><span class="stat-suffix">%</span></div>
+        <p>Average downtime reduction in the first 6 months</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div><span class="stat-num" data-target="15">0</span><span class="stat-suffix">%</span></div>
+        <p>Typical energy cost savings for mid-size operations</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div><span class="stat-num" data-target="30">0</span><span class="stat-suffix">%+</span></div>
+        <p>First-pass quality improvement with AI Vision systems</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div><span class="stat-num" data-target="4">0</span><span class="stat-suffix">wks</span></div>
+        <p>Average go-live timeline for Package 1</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / ENQUIRY -->
+<section class="cta-section section" id="enquiry">
+  <div class="cta-blobs">
+    <div class="cta-blob-1"></div>
+    <div class="cta-blob-2"></div>
+  </div>
+  <div class="container">
+    <div class="cta-inner">
+      <span class="cta-eyebrow">Free Consultation — No Strings Attached</span>
+      <h2>Get a Free Digital Health Check<br/>for Your Business Today</h2>
+      <p>We come in, we look, and we tell you honestly — what to do, what it will cost, and how long it will take. No sales pressure. Just straightforward advice.</p>
+      <a href="tel:+919876543210" class="btn-primary ripple" style="display:inline-flex;align-items:center;gap:8px;font-size:1.05rem;padding:16px 36px;">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 12.9c0 .2-.1.5-.1.7-.2.6-.9 1.3-1.6 1.5-.5.1-1.1.2-1.6.1C12.2 15 10.6 14.4 9 13.4 7.5 12.4 6.2 11.1 5.2 9.7 4.2 8.1 3.6 6.5 3.5 5c0-.5.1-1 .3-1.5C4 2.8 4.6 2.1 5.2 1.9c.2-.1.4-.1.5-.1.6 0 1.1.4 1.4 1l1.3 2.5c.3.6.1 1.3-.3 1.8l-.5.5c-.1.1-.1.2 0 .3 1 1.5 2.3 2.7 3.8 3.7.1.1.2.1.3 0l.5-.5c.5-.4 1.1-.6 1.8-.3L16 11.5c.6.3 1 .8 1 1.4z"/></svg>
+        Call Us — Book a Free Audit
+      </a>
+
+      <div class="cta-cards reveal-up">
+        <div class="cta-card">
+          <div class="cta-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8c0 5.5-7 10-7 10S3 13.5 3 8a7 7 0 0 1 14 0z"/><circle cx="10" cy="8" r="2"/></svg></div>
+          <div>
+            <strong>Pan-India Deployment</strong>
+            <span>On-site support across Maharashtra, Gujarat, Tamil Nadu &amp; beyond</span>
+          </div>
+        </div>
+        <div class="cta-card">
+          <div class="cta-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M7 9h6M7 13h4"/></svg></div>
+          <div>
+            <strong>Integrates with Tally, SAP, ERPNext</strong>
+            <span>No need to change the systems you already use</span>
+          </div>
+        </div>
+        <div class="cta-card">
+          <div class="cta-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"/></svg></div>
+          <div>
+            <strong>ROI in Under 12 Months</strong>
+            <span>Documented results across sectors and business sizes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="nav-logo" style="margin-bottom:0;">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" srcset="">
+        <span style="font-family:var(--font-head);font-size:1.05rem;font-weight:700;color:#fff;">Sanjeevni<span style="color:#60A5FA;"> Techno</span></span>
+      </div>
+      <p class="footer-tagline">Building intelligent systems that help businesses across India operate smarter, faster, and more profitably.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M16.338 16.338H13.67v-4.177c0-.996-.017-2.278-1.387-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.779 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M17.316 6.246c.008.143.008.287.008.43 0 4.388-3.336 9.45-9.44 9.45a9.367 9.367 0 0 1-5.087-1.49 6.66 6.66 0 0 0 .784.04 6.64 6.64 0 0 0 4.12-1.42 3.32 3.32 0 0 1-3.1-2.3c.205.032.41.048.624.048.3 0 .6-.04.878-.112a3.32 3.32 0 0 1-2.661-3.256v-.04c.447.247.958.4 1.503.42a3.32 3.32 0 0 1-1.027-4.43A9.422 9.422 0 0 0 10.27 7.62a3.32 3.32 0 0 1 5.655-3.025 6.53 6.53 0 0 0 2.107-.804 3.33 3.33 0 0 1-1.46 1.835 6.64 6.64 0 0 0 1.908-.52 7.13 7.13 0 0 1-1.664 1.14z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="WhatsApp">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M17 3C15.2 1.2 12.8.1 10.3.1 5.3.1 1.3 4.1 1.3 9.1c0 1.6.4 3.1 1.2 4.5L1 19l5.5-1.5c1.3.7 2.8 1.1 4.3 1.1h.1c5 0 9-4 9-9-.1-2.4-1.2-4.8-2.9-6.6zM10.3 16.9c-1.4 0-2.8-.4-4-1.1l-.3-.2-3.2.9.9-3.2-.2-.3c-.8-1.2-1.2-2.7-1.2-4.2 0-4.2 3.4-7.6 7.6-7.6 2 0 3.9.8 5.4 2.2 1.4 1.4 2.2 3.3 2.2 5.4-.1 4.1-3.4 7.5-7.5 7.5h.3zm4.2-5.7c-.2-.1-1.3-.7-1.5-.8s-.4-.1-.5.1-.6.8-.7.9c-.1.1-.3.1-.5 0-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6s0-.4.1-.5c.1-.1.2-.3.3-.5.1-.1.1-.3.1-.4s-.2-.7-.5-1.4c-.1-.3-.3-.4-.4-.4h-.4c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.2-.1-.3-.1-.5-.2z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#packages">Operations Control System</a></li>
+        <li><a href="#packages">Cost Reduction System</a></li>
+        <li><a href="#packages">Autonomous Operations Layer</a></li>
+        <li><a href="#custom-software">Custom Software</a></li>
+        <li><a href="#industry-solutions">Industry Solutions</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About Us</a></li>
+        <li><a href="/#portfolio">Portfolio</a></li>
+        <li><a href="/#team">Our Team</a></li>
+        <li><a href="#enquiry">Get Free Audit</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact-col">
+      <h5>Contact</h5>
+      <div class="fc-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12 19.79 19.79 0 0 1 1.27 3.35 2 2 0 0 1 3.23 1h3a2 2 0 0 1 2 1.72c.3 1 .6 2 .7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.72-.72a2 2 0 0 1 2.11-.45c.81.1 1.81.4 2.81.7A2 2 0 0 1 22 16z"/></svg>
+        <a href="tel:+919876543210">+91 98765 43210</a>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7-5 7 5v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <a href="mailto:info@sanjeevnitechno.com">info@sanjeevnitechno.com</a>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8c0 5.5-7 10-7 10S3 13.5 3 8a7 7 0 0 1 14 0z"/><circle cx="10" cy="8" r="2"/></svg>
+        <span>Tech Hub, Sector 62, Noida<br/>Uttar Pradesh, India</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sanjeevni Techno. All rights reserved.</span>
+    <span>Crafted with precision in India 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* --- SKELETON --- */
+  const skeleton = document.getElementById('skeleton-overlay');
+  const hide = () => { skeleton.classList.add('hidden'); initReveal(); revealHero(); };
+  if (document.readyState === 'complete') { setTimeout(hide, 400); }
+  else { window.addEventListener('load', () => setTimeout(hide, 500)); }
+
+  /* --- PARTICLES --- */
+  const pContainer = document.getElementById('heroParticles');
+  if (pContainer) {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      const size = Math.random() * 4 + 2;
+      p.className = 'particle';
+      p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;animation-duration:${Math.random()*15+8}s;animation-delay:${Math.random()*10}s;opacity:${Math.random()*0.5+0.2};`;
+      pContainer.appendChild(p);
+    }
+  }
+
+  /* --- NAVBAR --- */
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  hamburger && hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+  navLinks && navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* --- REVEAL --- */
+  function revealHero() {
+    document.querySelectorAll('#services-hero .hero-eyebrow, #services-hero .hero-title, #services-hero .hero-sub, #services-hero .hero-cta-group, #services-hero .hero-trust-row, #services-hero .breadcrumb').forEach((el, i) => {
+      setTimeout(() => el.style.cssText = 'opacity:1;transform:translateY(0)', i * 150);
+    });
+  }
+
+  function initReveal() {
+    const els = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const d = parseInt(e.target.dataset.delay || 0);
+          setTimeout(() => e.target.classList.add('revealed'), d);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    els.forEach(el => { if (!el.closest('#services-hero')) obs.observe(el); });
+  }
+
+  document.querySelectorAll('#services-hero .hero-eyebrow, #services-hero .hero-title, #services-hero .hero-sub, #services-hero .hero-cta-group, #services-hero .hero-trust-row, #services-hero .breadcrumb').forEach(el => {
+    el.style.cssText = 'opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1)';
+  });
+
+  /* --- DASHBOARD ANIMATION --- */
+  let dashDone = false;
+  const dashCard = document.querySelector('.dd-card');
+  if (dashCard) {
+    const dashObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting && !dashDone) { dashDone = true; animateOEE(); } });
+    }, { threshold: 0.4 });
+    dashObs.observe(dashCard);
+  }
+
+  function animateOEE() {
+    const targets = { oee: 79, avail: 92, perf: 88, qual: 97 };
+    const els = {
+      oee: document.getElementById('oeeVal'),
+      avail: document.getElementById('dashAvail'),
+      perf: document.getElementById('dashPerf'),
+      qual: document.getElementById('dashQual'),
+    };
+    const fill = document.getElementById('oeeFill');
+    const circ = 2 * Math.PI * 45;
+    let start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      const prog = Math.min((ts - start) / 1800, 1);
+      const ease = 1 - Math.pow(1 - prog, 3);
+      if (els.oee) els.oee.textContent = Math.round(ease * targets.oee) + '%';
+      if (els.avail) els.avail.textContent = Math.round(ease * targets.avail) + '%';
+      if (els.perf) els.perf.textContent = Math.round(ease * targets.perf) + '%';
+      if (els.qual) els.qual.textContent = Math.round(ease * targets.qual) + '%';
+      if (fill) fill.style.strokeDashoffset = circ - (circ * ease * targets.oee / 100);
+      if (prog < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* --- STATS COUNTER --- */
+  let countered = false;
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !countered) {
+        countered = true;
+        document.querySelectorAll('.stat-num').forEach(el => {
+          const target = parseInt(el.dataset.target);
+          let cur = 0;
+          const step = target / (2000 / 16);
+          const t = setInterval(() => {
+            cur += step;
+            if (cur >= target) { cur = target; clearInterval(t); }
+            el.textContent = Math.floor(cur);
+          }, 16);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection) statsObs.observe(statsSection);
+
+  /* --- INDUSTRY TABS --- */
+  document.querySelectorAll('.ind-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.ind-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.ind-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.querySelector(`.ind-panel[data-panel="${tab.dataset.panel}"]`);
+      if (panel) {
+        panel.classList.add('active');
+        panel.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+          el.classList.remove('revealed');
+          setTimeout(() => el.classList.add('revealed'), 50);
+        });
+      }
+    });
+  });
+  document.querySelector('.ind-panel.active')?.querySelectorAll('.reveal-left, .reveal-right').forEach((el, i) => {
+    setTimeout(() => el.classList.add('revealed'), 800 + i * 150);
+  });
+
+  /* --- SMOOTH SCROLL --- */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const t = document.querySelector(href);
+      if (t) {
+        e.preventDefault();
+        const offset = navbar.offsetHeight + 16;
+        window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* --- RIPPLE --- */
+  document.querySelectorAll('.ripple').forEach(el => {
+    el.addEventListener('click', function(e) {
+      const r = el.getBoundingClientRect();
+      const size = Math.max(r.width, r.height);
+      const wave = document.createElement('span');
+      wave.className = 'ripple-wave';
+      wave.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - r.left - size/2}px;top:${e.clientY - r.top - size/2}px`;
+      el.appendChild(wave);
+      wave.addEventListener('animationend', () => wave.remove());
+    });
+  });
+
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+</body>
+</html>

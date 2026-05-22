@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjeevni Techno — Building Intelligent Systems</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- SKELETON LOADER -->
+  <div id="skeleton-overlay">
+    <div class="sk-nav">
+      <div class="sk-block sk-logo"></div>
+      <div class="sk-block sk-navlinks"></div>
+    </div>
+    <div class="sk-hero">
+      <div class="sk-block sk-h1"></div>
+      <div class="sk-block sk-h2"></div>
+      <div class="sk-block sk-h3"></div>
+      <div class="sk-block sk-btns"></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-mark">
+          <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo image" srcset="">
+        </div>
+        <span class="logo-text">Sanjeevni<span>Techno</span></span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/services" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+        <li><a href="/blogs" class="nav-link">Blogs</a></li>
+        <li><a href="#enquiry" class="nav-cta">Enquiry</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-img">
+        <img src="{{ url_for('static', filename='img/herobg.jpg') }}" alt="Hero image" aria-hidden="true" />
+      </div>
+      <div class="hero-bg-overlay"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge" id="heroBadge">
+        <span class="badge-dot"></span> Pioneering Tech Since 2022
+      </div>
+      <h1 class="hero-title" id="heroTitle">
+        Building Intelligent<br />
+        <span class="gradient-text">Systems for the Future</span>
+      </h1>
+      <p class="hero-sub" id="heroSub">
+        We deliver smart, scalable solutions across healthcare,<br class="br-desktop" /> manufacturing, and global trade.
+      </p>
+      <div class="hero-actions" id="heroCta">
+        <a href="#solutions" class="btn-primary ripple">Get Started
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn-outline ripple">Book a Demo</a>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="dashboard-card">
+        <div class="dash-header">
+          <div class="dash-dots"><span></span><span></span><span></span></div>
+          <span class="dash-title">System Dashboard</span>
+        </div>
+        <div class="dash-stats">
+          <div class="ds-item"><span class="ds-val">99.8%</span><span class="ds-lbl">Uptime</span></div>
+          <div class="ds-item"><span class="ds-val">2.4ms</span><span class="ds-lbl">Latency</span></div>
+          <div class="ds-item"><span class="ds-val">+128%</span><span class="ds-lbl">Efficiency</span></div>
+        </div>
+        <div class="dash-chart">
+          <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 60 C30 55, 50 30, 80 28 S130 50, 160 35 S220 10, 280 15" stroke="url(#lineGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M0 60 C30 55, 50 30, 80 28 S130 50, 160 35 S220 10, 280 15 V80 H0Z" fill="url(#areaGrad)" opacity="0.3"/>
+            <defs>
+              <linearGradient id="lineGrad" x1="0" y1="0" x2="280" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3B82F6"/>
+                <stop offset="1" stop-color="#1D4ED8"/>
+              </linearGradient>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="80" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3B82F6" stop-opacity="0.5"/>
+                <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="dash-badges">
+          <span class="db active">● Live</span>
+          <span class="db">AI Enabled</span>
+          <span class="db">Secure</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" id="heroHint">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section id="about" class="section who-section">
+    <div class="container">
+      <div class="who-grid">
+        <div class="who-img-col reveal-left">
+          <div class="who-img-wrap">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80" alt="Sanjeevni Techno Team" loading="lazy" />
+            <div class="img-accent"></div>
+            <div class="img-badge">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#1A56DB" stroke="#1A56DB" stroke-width="1.5"/></svg>
+              <span>Est. 2022</span>
+            </div>
+          </div>
+        </div>
+        <div class="who-text-col reveal-right">
+          <div class="section-tag">Who We Are</div>
+          <h2 class="section-title">A New Kind of Technology Company</h2>
+          <p class="who-para">Founded in 2022, Sanjeevni Techno was born from a simple conviction: technology should solve real-world problems at scale. We build intelligent, reliable, and future-ready systems that help businesses across healthcare, manufacturing, and global trade operate smarter and faster.</p>
+          <p class="who-para">Our team combines deep domain expertise with cutting-edge engineering to deliver solutions that don't just work — they transform. We take pride in innovation, long-term reliability, and creating systems that grow with your ambitions.</p>
+          <div class="who-pillars">
+            <div class="pillar">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div><strong>Innovation-First</strong><p>We adopt emerging technologies before they become mainstream.</p></div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <div><strong>Scalable by Design</strong><p>Our systems are engineered to scale as your business evolves.</p></div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+              </div>
+              <div><strong>Trusted Reliability</strong><p>99.8% uptime SLA. Security-first. Always enterprise-grade.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section id="solutions" class="section solutions-section">
+    <div class="container">
+      <div class="section-head reveal-fade">
+        <div class="section-tag">Our Solutions</div>
+        <h2 class="section-title centered">Smart Systems Across Industries</h2>
+        <p class="section-sub">From automated factories to connected healthcare, we deliver end-to-end technology that drives measurable outcomes.</p>
+      </div>
+      <div class="solutions-grid">
+        <div class="sol-card reveal-up" data-delay="0">
+          <div class="sol-icon">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#EEF2FF"/><path d="M12 28V18l8-6 8 6v10" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 28v-6h8v6" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Smart Factory Systems</h3>
+          <p>End-to-end industrial automation platforms with real-time monitoring, predictive maintenance, and OEE dashboards.</p>
+          <a href="#" class="sol-link">Learn more →</a>
+        </div>
+        <div class="sol-card reveal-up" data-delay="100">
+          <div class="sol-icon">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#EEF2FF"/><path d="M20 12v4M20 24v4M12 20h4M24 20h4" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="20" r="5" stroke="#1A56DB" stroke-width="2"/></svg>
+          </div>
+          <h3>Healthcare Tech Solutions</h3>
+          <p>Connected health platforms, patient data systems, and diagnostic AI tools that modernize care delivery at every level.</p>
+          <a href="#" class="sol-link">Learn more →</a>
+        </div>
+        <div class="sol-card reveal-up" data-delay="200">
+          <div class="sol-icon">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#EEF2FF"/><path d="M10 30l6-6 4 4 8-10 2 2" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="14" r="2" fill="#1A56DB"/></svg>
+          </div>
+          <h3>Automation & AI Systems</h3>
+          <p>Machine learning pipelines, intelligent process automation, and AI-powered decision engines tailored to your workflows.</p>
+          <a href="#" class="sol-link">Learn more →</a>
+        </div>
+        <div class="sol-card reveal-up" data-delay="0">
+          <div class="sol-icon">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#EEF2FF"/><path d="M10 20h20M10 14h20M10 26h20" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="20" r="2" fill="#1A56DB"/><circle cx="26" cy="14" r="2" fill="#1A56DB"/><circle cx="14" cy="26" r="2" fill="#1A56DB"/></svg>
+          </div>
+          <h3>Supply Chain & Trade Systems</h3>
+          <p>Real-time supply chain visibility, customs compliance automation, and global trade intelligence for seamless operations.</p>
+          <a href="#" class="sol-link">Learn more →</a>
+        </div>
+        <div class="sol-card reveal-up" data-delay="100">
+          <div class="sol-icon">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#EEF2FF"/><rect x="12" y="14" width="16" height="12" rx="2" stroke="#1A56DB" stroke-width="2"/><path d="M16 26v4M24 26v4M14 30h12" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Enterprise SaaS Platforms</h3>
+          <p>Custom cloud-native platforms built for scale — from MVP to enterprise-grade, with full DevOps and security integration.</p>
+          <a href="#" class="sol-link">Learn more →</a>
+        </div>
+        <div class="sol-card reveal-up" data-delay="200">
+          <div class="sol-icon">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#EEF2FF"/><path d="M20 10 L28 15 L28 25 L20 30 L12 25 L12 15 Z" stroke="#1A56DB" stroke-width="2" stroke-linejoin="round"/><path d="M20 15 L24 17.5 L24 22.5 L20 25 L16 22.5 L16 17.5 Z" fill="#1A56DB" opacity="0.3"/></svg>
+          </div>
+          <h3>IoT & Edge Computing</h3>
+          <p>Intelligent sensor networks, edge processors, and real-time data pipelines that connect your physical and digital worlds.</p>
+          <a href="#" class="sol-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="section stats-section">
+    <div class="stats-bg-blob"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal-fade">
+          <span class="stat-num" data-target="120">0</span><span class="stat-suffix">+</span>
+          <p>Satisfied Clients</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item reveal-fade" style="transition-delay:0.1s">
+          <span class="stat-num" data-target="340">0</span><span class="stat-suffix">+</span>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item reveal-fade" style="transition-delay:0.2s">
+          <span class="stat-num" data-target="3">0</span><span class="stat-suffix">+</span>
+          <p>Years of Experience</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item reveal-fade" style="transition-delay:0.3s">
+          <span class="stat-num" data-target="45">0</span><span class="stat-suffix"></span>
+          <p>Active Solutions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO (placeholder) -->
+  <section id="portfolio" class="section portfolio-section">
+    <div class="container">
+      <div class="section-head reveal-fade">
+        <div class="section-tag">Portfolio</div>
+        <h2 class="section-title centered">Work That Speaks for Itself</h2>
+        <p class="section-sub">A glimpse of the systems we've built that are running in production today.</p>
+      </div>
+      <div class="portfolio-grid">
+        <a href="/shreenika">
+        <div class="port-card reveal-up large" data-delay="0">
+          <img src="/static/img/ShreenikaAi v4.png" alt="Smart Factory" loading="lazy" />
+          <div class="port-overlay">
+            <span class="port-tag">Voice AI</span>
+            <h3>Redefining the Voice of Your Business</h3>
+            <p>Shreenika Al is a cutting-edge voice technology platform designed for the
+modern sales landscape. We bridge the gap between human empathy
+and artificial intelligence - building agents that don'tjust auto-dial, they
+communicate.</p>
+          </div>
+        </div>
+        </a>
+        <div class="port-card reveal-up" data-delay="100">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Healthcare" loading="lazy" />
+          <div class="port-overlay">
+            <span class="port-tag">Healthcare</span>
+            <h3>Patient Intelligence Platform</h3>
+            <p>HIPAA-compliant diagnostic data platform for multi-specialty hospitals.</p>
+          </div>
+        </div>
+        <div class="port-card reveal-up" data-delay="200">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" alt="Supply Chain" loading="lazy" />
+          <div class="port-overlay">
+            <span class="port-tag">Trade & Logistics</span>
+            <h3>Global Trade Intelligence</h3>
+            <p>End-to-end customs and supply chain visibility across 12 countries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section testimonials-section">
+    <div class="container">
+      <div class="section-head reveal-fade">
+        <div class="section-tag">Testimonials</div>
+        <h2 class="section-title centered">What Our Clients Say</h2>
+      </div>
+      <div class="testimonial-carousel reveal-fade">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-slide">
+            <div class="testi-card">
+              <div class="testi-quote">
+                <svg viewBox="0 0 40 40" fill="none"><path d="M8 18c0-4.4 3.6-8 8-8v4c-2.2 0-4 1.8-4 4v2h4v8H8v-10zm16 0c0-4.4 3.6-8 8-8v4c-2.2 0-4 1.8-4 4v2h4v8H24v-10z" fill="#1A56DB" opacity="0.15"/></svg>
+              </div>
+              <p>"Sanjeevni Techno transformed our factory floor. Their smart monitoring system reduced our downtime by 38% in just 4 months. Truly impressive engineering."</p>
+              <div class="testi-author">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt="Vikram Nair" loading="lazy" />
+                <div>
+                  <strong>Vikram Nair</strong>
+                  <span>VP Operations, AutoPrecision Ltd.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-card">
+              <div class="testi-quote">
+                <svg viewBox="0 0 40 40" fill="none"><path d="M8 18c0-4.4 3.6-8 8-8v4c-2.2 0-4 1.8-4 4v2h4v8H8v-10zm16 0c0-4.4 3.6-8 8-8v4c-2.2 0-4 1.8-4 4v2h4v8H24v-10z" fill="#1A56DB" opacity="0.15"/></svg>
+              </div>
+              <p>"Their healthcare platform is intuitive, secure, and built exactly the way our clinical teams needed. Sanjeevni's team really listens and delivers with precision."</p>
+              <div class="testi-author">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="Dr. Aditi Rao" loading="lazy" />
+                <div>
+                  <strong>Dr. Aditi Rao</strong>
+                  <span>CIO, MedCare Hospitals</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-card">
+              <div class="testi-quote">
+                <svg viewBox="0 0 40 40" fill="none"><path d="M8 18c0-4.4 3.6-8 8-8v4c-2.2 0-4 1.8-4 4v2h4v8H8v-10zm16 0c0-4.4 3.6-8 8-8v4c-2.2 0-4 1.8-4 4v2h4v8H24v-10z" fill="#1A56DB" opacity="0.15"/></svg>
+              </div>
+              <p>"Our supply chain is now fully visible across 12 countries. The trade intelligence system saved us over ₹2 Cr in compliance costs in the first year alone."</p>
+              <div class="testi-author">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Suresh Iyer" loading="lazy" />
+                <div>
+                  <strong>Suresh Iyer</strong>
+                  <span>Director, Global Trade, ExportEdge</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-controls">
+          <button class="testi-btn" id="testiPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="testi-btn" id="testiNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="section cta-section">
+    <div class="cta-bg">
+      <div class="cta-blob-1"></div>
+      <div class="cta-blob-2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-inner reveal-up">
+        <span class="cta-eyebrow">Let's Build Together</span>
+        <h2>Ready to Transform<br />Your Business?</h2>
+        <p>Talk to our team and discover how Sanjeevni Techno can architect the future of your industry.</p>
+        <a href="#enquiry" class="btn-primary ripple large">Get in Touch
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY FORM -->
+  <section id="enquiry" class="section enquiry-section">
+    <div class="container">
+      <div class="section-head reveal-fade">
+        <div class="section-tag">Enquiry</div>
+        <h2 class="section-title centered">Get in Touch</h2>
+        <p class="section-sub">Fill out the form below and our team will get back to you within 24 hours.</p>
+      </div>
+      <div class="enquiry-wrap">
+        <form action="/submit-enquiry" method="POST" class="enquiry-form reveal-left">
+
+  <div class="form-group">
+    <label>Full Name</label>
+    <input
+      type="text"
+      name="full_name"
+      placeholder="Your full name"
+      required
+    />
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="you@company.com"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="+91 00000 00000"
+        required
+      />
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label>Service Interested In</label>
+
+    <select name="service" required>
+      <option value="">Select a service</option>
+      <option>Smart Factory Systems</option>
+      <option>Healthcare Tech Solutions</option>
+      <option>Automation & AI Systems</option>
+      <option>Supply Chain & Trade Systems</option>
+      <option>Enterprise SaaS Platforms</option>
+      <option>IoT & Edge Computing</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Message</label>
+
+    <textarea
+      name="message"
+      placeholder="Tell us about your project..."
+      rows="4"
+      required
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="btn-primary ripple full-width"
+  >
+    Send Enquiry
+
+    <svg viewBox="0 0 20 20" fill="none">
+      <path
+        d="M4 10h12M12 6l4 4-4 4"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+
+</form>
+        <div class="enquiry-info reveal-right">
+          <div class="ei-block">
+            <div class="ei-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:info@sanjeevnitechno.com">info@sanjeevnitechno.com</a>
+            </div>
+          </div>
+          <div class="ei-block">
+            <div class="ei-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+919876543210">+91 98765 43210</a>
+            </div>
+          </div>
+          <div class="ei-block">
+            <div class="ei-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <strong>Address</strong>
+              <span>Tech Hub, Sector 62, Noida<br />Uttar Pradesh 201309, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo footer-logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="8" fill="url(#logoGrad2)"/>
+              <path d="M8 18L14 12L20 18L26 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 24L14 18L20 24L26 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+              <defs>
+                <linearGradient id="logoGrad2" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B82F6"/>
+                  <stop offset="1" stop-color="#1A56DB"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="logo-text light">Sanjeevni<span>Techno</span></span>
+        </a>
+        <p class="footer-tagline">Building intelligent systems that power a smarter, more connected world.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#solutions">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#enquiry">Enquiry</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">Smart Factory Systems</a></li>
+          <li><a href="#">Healthcare Tech</a></li>
+          <li><a href="#">Automation & AI</a></li>
+          <li><a href="#">Supply Chain</a></li>
+          <li><a href="#">Enterprise SaaS</a></li>
+          <li><a href="#">IoT & Edge</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact-col">
+        <h5>Contact</h5>
+        <div class="fc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:info@sanjeevnitechno.com">info@sanjeevnitechno.com</a>
+        </div>
+        <div class="fc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+        </div>
+        <div class="fc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Tech Hub, Sector 62, Noida<br />UP 201309, India</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Sanjeevni Techno. All rights reserved.</span>
+      <span>Crafted with precision in India 🇮🇳</span>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

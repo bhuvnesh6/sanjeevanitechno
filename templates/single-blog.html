@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>{{ post.title }}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg: #F5F6F7;
+      --bg-white: #ffffff;
+      --text: #2B2E33;
+      --text-secondary: #7B7F85;
+      --accent: #1A56DB;
+      --accent-light: #3B82F6;
+      --accent-glow: rgba(26, 86, 219, 0.15);
+      --border: #E4E6EA;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+      --transition: 0.3s ease;
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:var(--font-body);
+      line-height:1.8;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-inner{
+      width:min(1200px,92%);
+      margin:auto;
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .nav-logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+
+    .logo-mark img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+    }
+
+    .logo-text{
+      font-size:22px;
+      font-weight:700;
+      color:var(--text);
+    }
+
+    .logo-text span{
+      color:var(--accent);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      list-style:none;
+    }
+
+    .nav-link{
+      text-decoration:none;
+      color:var(--text-secondary);
+      transition:var(--transition);
+      font-weight:500;
+    }
+
+    .nav-link:hover{
+      color:var(--accent);
+    }
+
+    /* BLOG HERO */
+
+    .hero{
+      width:min(1100px,92%);
+      margin:60px auto 30px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--accent-glow);
+      color:var(--accent);
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:24px;
+    }
+
+    .hero h1{
+      font-family:var(--font-head);
+      font-size:64px;
+      line-height:1.15;
+      margin-bottom:28px;
+      max-width:900px;
+    }
+
+    .meta{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+      color:var(--text-secondary);
+      font-size:15px;
+      margin-bottom:30px;
+    }
+
+    .cover{
+      width:100%;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow-lg);
+      margin-top:35px;
+    }
+
+    .cover img{
+      width:100%;
+      display:block;
+      object-fit:cover;
+      max-height:620px;
+    }
+
+    /* ARTICLE */
+
+    .article-wrap{
+      width:min(900px,92%);
+      margin:60px auto 100px;
+    }
+
+    .article{
+      background:var(--bg-white);
+      padding:60px;
+      border-radius:32px;
+      box-shadow:var(--shadow-md);
+      border:1px solid var(--border);
+    }
+
+    .article h1,
+    .article h2,
+    .article h3{
+      font-family:var(--font-head);
+      margin-top:40px;
+      margin-bottom:20px;
+      line-height:1.3;
+      color:var(--text);
+    }
+
+    .article h1{
+      font-size:46px;
+    }
+
+    .article h2{
+      font-size:36px;
+    }
+
+    .article h3{
+      font-size:28px;
+    }
+
+    .article p{
+      margin-bottom:22px;
+      color:var(--text);
+      font-size:18px;
+      line-height:1.9;
+    }
+
+    .article ul,
+    .article ol{
+      padding-left:25px;
+      margin-bottom:26px;
+    }
+
+    .article li{
+      margin-bottom:12px;
+      font-size:18px;
+    }
+
+    .article img{
+      width:100%;
+      border-radius:20px;
+      margin:30px 0;
+    }
+
+    .tags{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:40px;
+    }
+
+    .tag{
+      background:var(--accent-glow);
+      color:var(--accent);
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:50px;
+      text-decoration:none;
+      color:white;
+      background:var(--accent);
+      padding:14px 22px;
+      border-radius:var(--radius-sm);
+      transition:var(--transition);
+      font-weight:600;
+    }
+
+    .back-btn:hover{
+      background:var(--accent-light);
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .article{
+        padding:32px 24px;
+      }
+
+      .article h1{
+        font-size:34px;
+      }
+
+      .article h2{
+        font-size:28px;
+      }
+
+      .article p{
+        font-size:17px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="nav-inner">
+
+      <a href="/" class="nav-logo">
+        <div class="logo-mark">
+          <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+        </div>
+
+        <span class="logo-text">
+          Sanjeevni<span>Techno</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/services" class="nav-link">Services</a></li>
+        <li><a href="/blogs" class="nav-link">Blogs</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="badge">
+      AI • Technology • Innovation
+    </div>
+
+    <h1>
+      {{ post.title }}
+    </h1>
+
+    <div class="meta">
+
+      <span>
+        ✍️ By {{ post.author }}
+      </span>
+
+      <span>
+        📖 {{ post.word_count }} Words
+      </span>
+
+      <span>
+        📅 {{ post.created_at[:10] }}
+      </span>
+
+    </div>
+
+    {% if post.cover_image %}
+
+    <div class="cover">
+      <img
+        src="{{ post.cover_image }}"
+        alt="{{ post.title }}"
+      >
+    </div>
+
+    {% endif %}
+
+  </section>
+
+  <!-- ARTICLE -->
+
+  <section class="article-wrap">
+
+    <div class="article">
+
+      {{ post.body_html | safe }}
+
+      {% if post.tags %}
+
+      <div class="tags">
+
+        {% for tag in post.tags %}
+
+        <div class="tag">
+          #{{ tag }}
+        </div>
+
+        {% endfor %}
+
+      </div>
+
+      {% endif %}
+
+      <a href="/blogs" class="back-btn">
+        ← Back To Blogs
+      </a>
+
+    </div>
+
+  </section>
+
+</body>
+</html>

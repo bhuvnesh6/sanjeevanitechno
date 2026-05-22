@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg: #F5F6F7;
+      --bg-white: #ffffff;
+      --text: #2B2E33;
+      --text-secondary: #7B7F85;
+      --accent: #1A56DB;
+      --accent-light: #3B82F6;
+      --accent-glow: rgba(26, 86, 219, 0.15);
+      --border: #E4E6EA;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+      --transition: 0.3s ease;
+      --font-head: 'Playfair Display', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:var(--font-body);
+      background:var(--bg);
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:420px;
+      background:var(--bg-white);
+      padding:40px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-lg);
+    }
+
+    h1{
+      font-family:var(--font-head);
+      text-align:center;
+      margin-bottom:10px;
+      color:var(--text);
+    }
+
+    p{
+      text-align:center;
+      color:var(--text-secondary);
+      margin-bottom:30px;
+    }
+
+    .group{
+      margin-bottom:20px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:600;
+      color:var(--text);
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-sm);
+      font-size:15px;
+      outline:none;
+      transition:var(--transition);
+    }
+
+    input:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px var(--accent-glow);
+    }
+
+    button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:var(--radius-sm);
+      background:var(--accent);
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+      transition:var(--transition);
+    }
+
+    button:hover{
+      background:var(--accent-light);
+    }
+
+    .bottom{
+      text-align:center;
+      margin-top:20px;
+      color:var(--text-secondary);
+    }
+
+    .bottom a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .flash{
+      background:#ffe9e9;
+      color:#d10000;
+      padding:12px;
+      border-radius:10px;
+      margin-bottom:20px;
+      text-align:center;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <h1>Create Account</h1>
+  <p>Signup to access dashboard</p>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash">
+        {{ messages[0] }}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST">
+
+    <div class="group">
+      <label>Username</label>
+      <input type="text" name="username" required>
+    </div>
+
+    <div class="group">
+      <label>Password</label>
+      <input type="password" name="password" required>
+    </div>
+
+    <button type="submit">Create Account</button>
+
+  </form>
+
+  <div class="bottom">
+    Already have an account?
+    <a href="/login">Login</a>
+  </div>
+
+</div>
+
+</body>
+</html>
