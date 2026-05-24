@@ -30,7 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
+  const navCloseBtn = document.getElementById('navCloseBtn');
   const allNavLinks = document.querySelectorAll('.nav-link');
+
+  // Helper: close mobile menu
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
   // Scroll handling
   const handleScroll = () => {
@@ -50,21 +58,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
   });
 
+  // In-drawer close button
+  if (navCloseBtn) {
+    navCloseBtn.addEventListener('click', closeMobileMenu);
+  }
+
   // Close menu on link click
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMobileMenu);
   });
 
   // Close menu on outside click
   document.addEventListener('click', (e) => {
     if (navLinks.classList.contains('open') && !navbar.contains(e.target)) {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
+      closeMobileMenu();
+    }
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      closeMobileMenu();
     }
   });
 
@@ -249,9 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
      LAZY LOADING (native + fallback)
      ============================================ */
   if ('loading' in HTMLImageElement.prototype) {
-    // Native lazy loading supported — handled via HTML attributes
+    // Native lazy loading supported
   } else {
-    // Fallback
     const lazyImgs = document.querySelectorAll('img[loading="lazy"]');
     const lazyObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -264,11 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     lazyImgs.forEach(img => lazyObserver.observe(img));
   }
-
-  /* ============================================
-     ENQUIRY FORM FEEDBACK
-     ============================================ */
- 
 
   /* ============================================
      PARALLAX — Subtle hero blobs
@@ -290,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   /* ============================================
-     SOL CARD STAGGER (extra polish)
+     SOL CARD STAGGER
      ============================================ */
   const solCards = document.querySelectorAll('.sol-card');
   const solObserver = new IntersectionObserver(entries => {
@@ -345,20 +353,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============================================
      DASHBOARD CARD — Live counter animation
      ============================================ */
-  function animateDashValue(el, start, end, unit = '') {
-    const duration = 2000;
-    const step = (end - start) / (duration / 16);
-    let current = start;
-    const timer = setInterval(() => {
-      current += step;
-      if ((step > 0 && current >= end) || (step < 0 && current <= end)) {
-        current = end;
-        clearInterval(timer);
-      }
-      el.textContent = Math.round(current * 10) / 10 + unit;
-    }, 16);
-  }
-
   const dashVals = document.querySelectorAll('.ds-val');
   const dashTargets = [99.8, 2.4, 128];
   const dashUnits = ['%', 'ms', '%'];

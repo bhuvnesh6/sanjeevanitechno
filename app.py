@@ -38,6 +38,10 @@ def home():
 def about():
     return render_template("about-us.html")
 
+@app.route("/pravaahai")
+def pravaahai():
+    return render_template("pravaahAI.html")
+
 
 @app.route("/services")
 def services():
